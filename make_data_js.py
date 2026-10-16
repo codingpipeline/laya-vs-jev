@@ -1,11 +1,15 @@
-"""Wrap results.json as data/results.js so index.html works when opened from disk (file:// blocks fetch)."""
-import json, os
+"""Wrap results as data/results.js so index.html works when opened without a server.
+
+Uses data/results.local.json (your own runs) if it exists, otherwise the shipped data/results.json.
+"""
+import json
+import os
+
 here = os.path.dirname(os.path.abspath(__file__))
-src = os.path.join(here, "data", "results.json")
+data = os.path.join(here, "data")
+src = os.path.join(data, "results.local.json")
 if not os.path.exists(src):
-    src = os.path.join(os.environ.get("LAYA_REPO") or os.path.join(here, "..", "laya-return-intent-finetuning"),
-                       "results", "round2", "results.json")
+    src = os.path.join(data, "results.json")
 d = json.load(open(src))
-os.makedirs(os.path.join(here, "data"), exist_ok=True)
-open(os.path.join(here, "data", "results.js"), "w").write("window.RESULTS = " + json.dumps(d) + ";\n")
-print("arms:", list(d["arms"]), "source:", src)
+open(os.path.join(data, "results.js"), "w").write("window.RESULTS = " + json.dumps(d) + ";\n")
+print("arms:", list(d["arms"]), "| source:", os.path.basename(src))
