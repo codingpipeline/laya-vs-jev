@@ -12,7 +12,7 @@ or `escalate` (a human must look: fraud, legal threats, safety, or attempts to i
 
 | System | What it is |
 |---|---|
-| **Laya** | Open-source typed decision model from [Convai Innovations](https://github.com/NandhaKishorM/laya), 421M parameters. Tested zero-shot and fine-tuned on 640 messages. |
+| **Laya** | Open-source typed decision model by [Nandha Kishore M](https://github.com/NandhaKishorM) and Convai Innovations ([source](https://github.com/NandhaKishorM/laya)), 421M parameters. Tested zero-shot and fine-tuned on 640 messages. |
 | **Jev** | Hosted decision model from TypeSafe AI, version `jev-1.13.0`, used as provided. |
 | **LLM classifier** | A general LLM prompted to answer with one label, used as provided. |
 | **TF-IDF baseline** | About 40 lines of NumPy, no neural network. A sanity check. |
@@ -129,5 +129,5 @@ data/predictions_extra.json   per-message predictions of the Jev and LLM arms
 
 ## License and credits
 
-Apache License 2.0, see `LICENSE`. Laya is by Convai Innovations (Apache 2.0). Jev is a TypeSafe AI product. Vendor
+Apache License 2.0, see `LICENSE`. Laya is created by [Nandha Kishore M](https://github.com/NandhaKishorM) and Convai Innovations (Apache 2.0); thank you for open-sourcing it, and for the fine-tuning example this work builds on. Jev is a TypeSafe AI product. Vendor
 benchmarks belong to the vendors; nothing here reproduces them.
