@@ -3,6 +3,8 @@
 A measured, reproducible comparison of two typed decision models on one real-world task, with a dashboard you can open in
 one command.
 
+![Dashboard overview: accuracy, unsafe approvals and latency for each system](docs/dashboard-top.png)
+
 **The task:** route a customer's return request into one of four outcomes: `refund`, `exchange`, `clarify` (ask the customer),
 or `escalate` (a human must look: fraud, legal threats, safety, or attempts to instruct the system).
 
@@ -26,6 +28,13 @@ or `escalate` (a human must look: fraud, legal threats, safety, or attempts to i
 | Jev 1.13.0 | 92.6% | 7 | 23 | 508 ms, hosted API |
 | TF-IDF baseline | 81.2% | 2 | 27 | under 1 ms |
 | Laya, zero-shot | 41.6% | 49 | 1 | 248 ms |
+
+<details>
+<summary>Full dashboard (latency, accuracy vs coverage, confusion matrices, all numbers)</summary>
+
+![Full dashboard](docs/dashboard.png)
+
+</details>
 
 Jev used 59,500 input tokens for the 149 calls (about 400 per call). No price is shown because none was measured.
 
@@ -107,6 +116,7 @@ accuracy versus coverage for systems that return a confidence. Latency is measur
 ## Files
 
 ```
+docs/                dashboard screenshots used in this README
 index.html           the dashboard (static HTML/CSS/JS, light and dark themes)
 run_arms.py          runs the Jev and LLM arms on the test set
 scoring.py           metrics shared by every arm
